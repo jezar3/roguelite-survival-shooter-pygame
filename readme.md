@@ -27,4 +27,4 @@ This is my first Pygame project for school. **no AI copied code** and **code sug
 
 ## Acknowledgements
 - Online Pygame tutorials and examples for guidance and inspiration.
-- Classmates and friends for feedback.
+- friends for feedback.
