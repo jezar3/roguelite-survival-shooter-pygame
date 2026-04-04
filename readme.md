@@ -12,6 +12,13 @@ This is my first Pygame project for school. **no AI copied code** and **code sug
 - Player HP system (planned)
 - Start Menu and other characters (planned)
 
+## Previous status
+
+Chunk-based infinite world generation — only chunks within the camera's viewport are loaded and rendered each frame, generated once and cached so they never regenerate.
+
+https://github.com/user-attachments/assets/d0767b85-fdd9-4a9f-8217-da10ea4f252b
+
+
 ## Current Status
 - The main game loop **does not run** yet due to code restructuring for optimization.
 - Removed and simplified code blocks to improve performance.
@@ -28,3 +35,7 @@ This is my first Pygame project for school. **no AI copied code** and **code sug
 ## Acknowledgements
 - Online Pygame tutorials and examples for guidance and inspiration.
 - friends for feedback.
+
+
+
+
