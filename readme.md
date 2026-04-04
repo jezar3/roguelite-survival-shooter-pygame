@@ -1,6 +1,6 @@
 # Pygame School Project
 
-This is my first Pygame project for school. Everything in this project is **completely written by me**, with **no AI copied code** and **code suggestions turned off**.
+This is my first Pygame project for school. **no AI copied code** and **code suggestions turned off**.
  I wrote it by experimenting and reading other Pygame projects.
  The project including the main game loop, are not functional yet.
 
