@@ -1,7 +1,7 @@
 import pygame
 import sys
 from main_actor import Player
-from worldtest import Tile_Map
+from worldtest import TileMap
 from camera import Camera
 
 
@@ -11,7 +11,7 @@ window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 SCREEN_WIDTH, SCREEN_HEIGHT = window.get_size()
 
 player  = Player(700, 700, 6.5)
-tilemap = Tile_Map()
+tilemap = TileMap()
 camera  = Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
@@ -31,9 +31,9 @@ while gameIsRunning:
     
 
     window.fill((0, 0, 0))
-    tilemap.draw_world(camera, SCREEN_WIDTH, SCREEN_HEIGHT, window)
+    tilemap.draw(window, camera.offset_x, camera.offset_y, SCREEN_WIDTH, SCREEN_HEIGHT)
     player.draw(window, camera)
     
 
     pygame.display.update()
-    clock.tick(999)
+    clock.tick(60)

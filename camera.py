@@ -16,5 +16,9 @@ class Camera:
         self.offset_y = target.rect.centery - self.height // 2
 
     def apply(self, rect):
-        
+         return pygame.Rect(
+            rect.x - self.offset_x,
+            rect.y - self.offset_y,
+            rect.width,
+            rect.height)
         

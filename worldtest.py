@@ -1,44 +1,62 @@
+import random
 import pygame
-from noise import pnoise2
 
-TILE_SIZE = 8
-CHUNK_SIZE = 32
+'''i originally made this '''
 
-class Chunk:
-    def __init__(self, chunk_x, chunk_y):
-        self.chunk_x = chunk_x
-        self.chunk_y = chunk_y
-        self.surface = pygame.Surface((CHUNK_SIZE * TILE_SIZE, CHUNK_SIZE * TILE_SIZE))
-
-        for row in range(CHUNK_SIZE):
-            for col in range(CHUNK_SIZE):
-                world_col = self.chunk_x * CHUNK_SIZE + col
-                world_row = self.chunk_y * CHUNK_SIZE + row
-
-                n = pnoise2(world_col * 0.04, world_row * 0.04, octaves=6)
-                t = (n + 1) / 2
-
-                
-                r = int(45 + t * 40)
-                g = int(32 + t * 28)
-                b = int(18 + t * 18)
-                pygame.draw.rect(self.surface, (r, g, b), (col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE))
-                
-    def draw(self, screen, camera):
-        world_x = self.chunk_x * CHUNK_SIZE * TILE_SIZE
-        world_y = self.chunk_y * CHUNK_SIZE * TILE_SIZE
-        screen.blit(self.surface, camera.apply(pygame.Rect(world_x, world_y, CHUNK_SIZE * TILE_SIZE, CHUNK_SIZE * TILE_SIZE)))
-
-
-class TileMap:
+class Tile_Map:
+    
     def __init__(self):
-        self.chunks = {}
-        self.visible_chunks = []
+        self.tilePixelSize = 8       
+        self.tiles_per_chunk = 32  
+        self.chunk_pixels = self.tilePixelSize * self.tiles_per_chunk  
+        self.chunks = {} #connected w the get chunk function
 
-    def get_chunk(self, chunk_x, chunk_y):
-        key = (chunk_x, chunk_y)
-        if key not in self.chunks:
-            self.chunks[key] = Chunk(chunk_x, chunk_y)
-        return self.chunks[key]
+    def generate_chunk(self, col, row):
+        surface = pygame.Surface((self.chunk_pixels, self.chunk_pixels))
+        
+        rng = random.Random(col + row * 10000)
+        for row in range(self.tiles_per_chunk):
+            for column in range(self.tiles_per_chunk):
+                
+                brown = rng.randint(38, 58)
+            
+                color = (brown, int(brown * 0.7), int(brown * 0.4))
 
-  
+                #Each tile is placed 8 pixels apart so dis is more like 8, 16, 24 
+                positionInWorld_X = column * self.tilePixelSize
+                positionInWorld_Y = row * self.tilePixelSize
+                
+                #the format for the tuple is a pygame built in thing (x, y, width, height)
+                
+                pygame.draw.rect(surface, color, (positionInWorld_X, positionInWorld_Y, self.tilePixelSize, self.tilePixelSize))
+               
+        return surface
+
+    def get_chunk(self, col, row):
+       
+        if (col, row) not in self.chunks:
+            
+            self.chunks[(col, row)] = self.generate_chunk(col, row)
+
+        return self.chunks[(col, row)]
+
+    def draw_world(self, camera, SCREEN_WIDTH, SCREEN_HEIGHT, window):
+        self.SCREEN_WIDTH = SCREEN_WIDTH
+        self.SCREEN_HEIGHT = SCREEN_HEIGHT
+        
+        
+        #draws near cam only
+        self.first_column = (camera.offset_x // self.tilePixelSize) // self.tiles_per_chunk 
+        self.first_row = (camera.offset_y // self.tilePixelSize) // self.tiles_per_chunk 
+        self.last_column  = self.first_column + (self.SCREEN_WIDTH  // self.chunk_pixels) 
+        self.last_row  = self.first_row + (self.SCREEN_HEIGHT // self.chunk_pixels) 
+        
+        for row in range(self.first_row, self.last_row):
+            for col in range(self.first_column, self.last_column):
+
+                surface = self.get_chunk(col, row)
+
+                x = col * self.chunk_pixels - camera.offset_x
+                y = row * self.chunk_pixels - camera.offset_y
+
+                window.blit(surface, (x, y))
