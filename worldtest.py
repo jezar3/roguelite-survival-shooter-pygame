@@ -1,7 +1,7 @@
 import random
 import pygame
 
-'''i originally made this '''
+'''i  originally made this perlin noise at first, but it wasnt ideal the gameplay style here.'''
 
 class Tile_Map:
     
@@ -47,9 +47,9 @@ class Tile_Map:
         
         #draws near cam only
         self.first_column = (camera.offset_x // self.tilePixelSize) // self.tiles_per_chunk 
-        self.first_row = (camera.offset_y // self.tilePixelSize) // self.tiles_per_chunk 
-        self.last_column  = self.first_column + (self.SCREEN_WIDTH  // self.chunk_pixels) 
-        self.last_row  = self.first_row + (self.SCREEN_HEIGHT // self.chunk_pixels) 
+        self.first_row = (camera.offset_y // self.tilePixelSize) // self.tiles_per_chunk  
+        self.last_column  = self.first_column + (self.SCREEN_WIDTH  // self.chunk_pixels) + 4
+        self.last_row  = self.first_row + (self.SCREEN_HEIGHT // self.chunk_pixels) + 4 
         
         for row in range(self.first_row, self.last_row):
             for col in range(self.first_column, self.last_column):
