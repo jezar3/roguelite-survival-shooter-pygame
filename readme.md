@@ -1,45 +1,45 @@
-# Pygame School Project
-
-This is my first Pygame project for school. **no AI copied code** and **code suggestions turned off**.
- I wrote it by experimenting and reading other Pygame projects.
- The project including the main game loop, are not functional yet.
-
-## Features
-- Procedural tile map generation using **Perlin noise**
-- Player movement using **WASD keys** 
-- Day/night cycle (planned)
-- Pathfinding for enemies (planned)
-- Player HP system (planned)
-- Start Menu and other characters (planned)
-
-## Previous status
-
-Chunk-based infinite world generation — only chunks within the camera's viewport are loaded and rendered each frame, generated once and cached so they never regenerate.
-
-<<<<<<< HEAD
-=======
-Watch here:
->>>>>>> d4678ae (Merge branch 'main' of https://github.com/jezar3/roguelite-survival-shooter-pygame)
-https://github.com/user-attachments/assets/d0767b85-fdd9-4a9f-8217-da10ea4f252b
 
 
-## Current Status
-- The main game loop **does not run** yet due to code restructuring for optimization.
-- Removed and simplified code blocks to improve performance.
-- The procedural tile map is under reoptimization.
-- Future plans:
-  - Conditional statements based on **left-clicks**.
-  - **8-direction player sprites** that change depending on input. same reason why sprite has no animation
+This is my first Pygame project.
+All code is written manually (**no code from ai, code suggestions disabled**).
 
+---
 
-## Notes
-- This is my first Pygame project, so it’s full of errors
-- Future updates will fix the game loop, implement sprite changes, and improve performance.
+## ⚙️ World Generation
+The world is procedurally generated using a chunk-based tilemap system.  
+Each chunk is created dynamically based on its position, allowing the world to expand infinitely 
+without needing to preload the entire map.
 
-## Acknowledgements
-- Online Pygame tutorials and examples for guidance and inspiration.
-- friends for feedback.
+Only chunks within the camera’s viewport are generated and rendered each frame, which improves performance 
 
+---
 
+## ✅ Current Features
+- Procedural tilemap generation  
+- Chunk-based infinite world system  
+- Player movement using **W A S D keys**
 
+---
 
+## 🚧 Planned Features
+- Day/Night cycle  
+- Enemy pathfinding  
+- Player HP system  
+- Start menu and NPCs  
+
+---
+
+## 🎥 Preview
+Watch here:  
+https://github.com/user-attachments/assets/d0767b85-fdd9-4a9f-8217-d10ea4f252b
+
+---
+
+## ⚙️ Current Progress
+- Restructuring code for better optimization  
+- Simplifying systems to improve performance  
+
+---
+
+## 🎮 Controls
+- **W A S D** → Move player  
