@@ -1,7 +1,6 @@
 import random, math, pygame
 
 
-'''DAY CYCLE AND WEATHER'''
 class Weather:
 
     def __init__(self, screen_width, screen_height):
