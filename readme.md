@@ -7,17 +7,18 @@ All code is written manually (**no code from ai, code suggestions disabled**).
 The world is procedurally generated using a chunk-based map system.  
 
 ##  Current Features
-- Procedural map generation , Chunk-based infinite world system  ,  Day/Night cycle,  
+- Procedural map generation , Chunk-based infinite world system  ,  Day/Night cycle,  Weather system
 
 Watch here:  
-https://github.com/user-attachments/assets/d0767b85-fdd9-4a9f-8217-d10ea4f252b
+
+https://github.com/user-attachments/assets/26951977-acd7-4164-ab9e-30d76552096e
+
 
 ##  Planned Features
 
-- Enemy pathfinding  
-- Player HP system  
-- Start menu and NPCs  
-
+-Adaptive Enemy Behavior for Hard Mode — Enemies become more responsive and challenging on higher difficulty levels.
+-Palyer stats UI
+-Interactive Start Menu and NPC Interaction System
 
 
 ##  Current Progress
@@ -26,4 +27,6 @@ https://github.com/user-attachments/assets/d0767b85-fdd9-4a9f-8217-d10ea4f252b
 
 
 ##  Controls
-- **W A S D** → Move player  
+- **W A S D** → Move player
+- **LEFT CLICK** → Shoot projectile
+- 
